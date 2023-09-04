@@ -38,6 +38,13 @@ function init() {
   cube = new THREE.Mesh(geometry, material) // 建立網格物件
   cube.position.set(0, 0, 0)
   scene.add(cube)
+
+  // 建立獨立的框出線條幾何物件
+  var edges = new THREE.EdgesGeometry(geometry); // geometry 為你的模型幾何物件
+  var lines = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
+
+  // 將框出線條物件加入場景中
+  scene.add(lines);
 }
 
 // 建立動畫
